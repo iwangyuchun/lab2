@@ -33,5 +33,9 @@ public class DlbAction extends ActionSupport{
 		}
 	}
 	
+//	public String getXsKcs() {
+//		
+//		
+//	}
 
 }
