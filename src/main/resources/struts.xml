@@ -9,6 +9,11 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="default" namespace="/" extends="struts-default">	
+	<action name="login" class="cn.edu.ujn.lab2.action.DlbAction" method="login">
+	<result name="ok">/main.jsp</result>
+	<result name="error">/login.jsp</result>
+	<result name="input">/index.jsp</result>
+	</action>
 	    
 		
 	</package>
