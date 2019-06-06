@@ -1,8 +1,13 @@
 package cn.edu.ujn.lab2.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,8 +24,21 @@ public class Kcb implements java.io.Serializable {
 	private Short kxxq;
 	private Integer xs;
 	private Integer xf;
+	
+	@ManyToMany(mappedBy="kcbs",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private Set<Dlb> dlbs;
+	
+	
 
 	// Constructors
+
+	public Set<Dlb> getDlbs() {
+		return dlbs;
+	}
+
+	public void setDlbs(Set<Dlb> dlbs) {
+		this.dlbs = dlbs;
+	}
 
 	/** default constructor */
 	public Kcb() {

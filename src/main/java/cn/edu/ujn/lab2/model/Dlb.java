@@ -1,11 +1,16 @@
 package cn.edu.ujn.lab2.model;
 
 import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,8 +28,21 @@ public class Dlb implements java.io.Serializable {
 	private String xh;
 	private String kl;
 	private Date addtime;
+	@ManyToMany(mappedBy="dlbs",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private Set<Kcb> kcbs;
+	
+	
+	
 
 	// Constructors
+
+	public Set<Kcb> getKcbs() {
+		return kcbs;
+	}
+
+	public void setKcbs(Set<Kcb> kcbs) {
+		this.kcbs = kcbs;
+	}
 
 	/** default constructor */
 	public Dlb() {
